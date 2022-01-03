@@ -1,12 +1,15 @@
 .3ds
-.arm
 
 ; Download "Pokemon Emerald ACE contest Poke 1.sav" as "pokecontest.sav"
 ; https://sites.google.com/site/torchickens2/pokemon-save-files
-.open "pokecontest.sav",0
+.create "payload.bin",0
 
-; Overwrite existing ARM code in the premade savefile
-.org 0xDB1C
+.thumb
+
+BX PC
+.dcb 0, 0, 0, 0, 0, 0
+
+.arm
 
 NOP
 NOP

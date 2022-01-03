@@ -1,2 +1,4 @@
 *.sav
 *.bak
+!pokecontest.sav
+*.bin
