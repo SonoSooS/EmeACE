@@ -134,9 +134,6 @@ if __name__ == '__main__':
     # Selected save, other gets FF'd out
     save = None
     
-    # Box buffer
-    boxbytes = None
-    
     
     with io.open(SAVEFILE_NAME, "rb") as f:
         save1 = f.read(0xE000)
@@ -144,7 +141,7 @@ if __name__ == '__main__':
         save_rest = f.read() # Read to end
     
     buf1 = save1[0x0FF8:0x1000]
-    buf2 = save1[0xEFF8:0xF000]
+    buf2 = save2[0x0FF8:0x1000]
     
     if buf2[0:4] != b'\x25\x20\x01\x08': # Uninitialized data
         save = save1

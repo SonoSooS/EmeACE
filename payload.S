@@ -1,7 +1,5 @@
 .3ds
 
-; Download "Pokemon Emerald ACE contest Poke 1.sav" as "pokecontest.sav"
-; https://sites.google.com/site/torchickens2/pokemon-save-files
 .create "payload.bin",0
 
 .thumb
