@@ -148,9 +148,10 @@ if __name__ == '__main__':
     elif buf1[0:4] != b'\x25\x20\x01\x08': # Uninitialized data (not possible, but just in case)
         save = save2
     else:
-        id1 = struct.pack("<I", buf1[0xFFC:0x1000])
-        id2 = struct.pack("<I", buf2[0xFFC:0x1000])
+        id1 = struct.unpack("<I", buf1[4:8])[0]
+        id2 = struct.unpack("<I", buf2[4:8])[0]
         
+        #TODO: why does this break if the last save number is odd???
         save = save1 if id1 > id2 else save2
     
     if save[0x0FF8:0x0FFC] != b'\x25\x20\x01\x08':
